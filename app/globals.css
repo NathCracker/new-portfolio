@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* 1. Tell Tailwind to trigger dark mode utilities when the .dark class is present */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -12,11 +15,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 2. Replace the @media query with the .dark class */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 body {
